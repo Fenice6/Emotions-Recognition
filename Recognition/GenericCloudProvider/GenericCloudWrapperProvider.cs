@@ -1,5 +1,7 @@
-using System;
+﻿using System;
 using GenericCloudCommons.Interfaces;
+using Microsoft.Extensions.Configuration;
+
 namespace GenericCloudProvider
 {
     public class GenericCloudWrapperProvider
@@ -11,5 +13,9 @@ namespace GenericCloudProvider
             get { return _identification; }
         }
 
+        public GenericCloudWrapperProvider(IConfiguration config)
+        {
+            
+        }
     }
 }
