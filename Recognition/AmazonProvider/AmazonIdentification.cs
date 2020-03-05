@@ -6,10 +6,11 @@ using Amazon.Rekognition;
 using Amazon.Rekognition.Model;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
+using GenericCloudCommons.Interfaces;
 
 namespace AmazonProvider
 {
-    public class AmazonIdentification
+    public class AmazonIdentification : IIdentification
     {
         private readonly IAmazonRekognition _amazonRekognition;
         private readonly List<string> detectionAttributes = new List<string> { "ALL" };
@@ -32,7 +33,7 @@ namespace AmazonProvider
                 throw new Exception(createCollectionResponse.HttpStatusCode.ToString());
         }
 
-        public async Task<string> faceAnalyzerAsync(IFormFile photoFile, string collectionID)
+        public async Task<string> FaceAnalyzerAsync(IFormFile photoFile, string collectionID)
         {
             MemoryStream memoryStream = new MemoryStream();
             photoFile.CopyTo(memoryStream);
