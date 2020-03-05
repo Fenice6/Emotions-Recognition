@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericCloudCommons", "Gene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecognitionCommons", "RecognitionCommons\RecognitionCommons.csproj", "{1C731C5A-929A-4545-8665-3F0BBE0F4AFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonProvider", "AmazonProvider\AmazonProvider.csproj", "{55907A4B-1C55-441C-9B4F-B89D369B1A9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +33,9 @@ Global
 		{1C731C5A-929A-4545-8665-3F0BBE0F4AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C731C5A-929A-4545-8665-3F0BBE0F4AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C731C5A-929A-4545-8665-3F0BBE0F4AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55907A4B-1C55-441C-9B4F-B89D369B1A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55907A4B-1C55-441C-9B4F-B89D369B1A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55907A4B-1C55-441C-9B4F-B89D369B1A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55907A4B-1C55-441C-9B4F-B89D369B1A9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
