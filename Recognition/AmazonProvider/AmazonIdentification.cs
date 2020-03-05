@@ -7,6 +7,8 @@ using Amazon.Rekognition.Model;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
 using GenericCloudCommons.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AmazonProvider
 {
@@ -16,9 +18,19 @@ namespace AmazonProvider
         private readonly List<string> detectionAttributes = new List<string> { "ALL" };
         private readonly QualityFilter qualityFilter = QualityFilter.HIGH;
         private readonly int maxFaces = 1;
+
         public AmazonIdentification(IAmazonRekognition amazonRekognition)
         {
             _amazonRekognition = amazonRekognition;
+        }
+
+        public AmazonIdentification(IConfiguration configuration)
+        {
+            var services = new ServiceCollection();
+            services.AddDefaultAWSOptions(configuration.GetAWSOptions());
+            services.AddAWSService<IAmazonRekognition>();
+            var provider = services.BuildServiceProvider();
+            _amazonRekognition = (IAmazonRekognition)provider.GetRequiredService(typeof(IAmazonRekognition));
         }
 
         public async Task GenerateNewCollectionAsync(string collectionId)
