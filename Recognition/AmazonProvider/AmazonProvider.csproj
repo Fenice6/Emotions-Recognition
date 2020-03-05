@@ -6,5 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.Rekognition" Version="3.3.104.6" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
   </ItemGroup>
 </Project>
