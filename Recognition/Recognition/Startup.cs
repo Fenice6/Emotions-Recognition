@@ -26,7 +26,16 @@ namespace Recognition
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(o => o.AddPolicy(CorsAllowOrigins, builder => {
+                builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
         }
+
+        readonly string CorsAllowOrigins = "CorsAllowOrigins";
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -36,7 +45,7 @@ namespace Recognition
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            app.UseCors(CorsAllowOrigins);
 
             app.UseRouting();
 
