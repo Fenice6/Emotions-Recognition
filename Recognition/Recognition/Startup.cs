@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Recognition.Services;
+using Recognition.Services.Interfaces;
 
 namespace Recognition
 {
@@ -33,6 +35,7 @@ namespace Recognition
                     .AllowAnyHeader();
             }));
 
+            services.AddSingleton<IEmotionsExtractor, EmotionsExtractor>();
         }
 
         readonly string CorsAllowOrigins = "CorsAllowOrigins";
