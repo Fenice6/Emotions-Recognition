@@ -70,7 +70,7 @@ namespace AmazonProvider
             if (indexFacesResponse.UnindexedFaces.Count > 0 || indexFacesResponse.FaceRecords.Count != 1)
                 throw new Exception("Unindexed Faces: " + indexFacesResponse.UnindexedFaces.Count + "\nIndexed Faces: " + indexFacesResponse.FaceRecords.Count);
 
-            return JsonSerializer.Serialize(indexFacesResponse.FaceRecords[0]);
+            return JsonSerializer.Serialize(indexFacesResponse.FaceRecords[0].FaceDetail.Emotions);
         }
     }
 }
