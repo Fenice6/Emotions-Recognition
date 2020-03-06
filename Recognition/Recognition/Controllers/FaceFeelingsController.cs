@@ -1,9 +1,19 @@
-﻿namespace Recognition.Controllers
+﻿using GenericCloudProvider;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+
+namespace Recognition.Controllers
 {
-    public class FaceFeelingsController
+    [ApiController]
+    [Route("[controller]")]
+    public class FaceFeelingsController : ControllerBase
     {
-        public FaceFeelingsController()
+        private readonly GenericCloudWrapperProvider _genericCloudWrapperProvider;
+        private readonly IConfiguration _config;
+        public FaceFeelingsController(IConfiguration config)
         {
+            _genericCloudWrapperProvider = new GenericCloudWrapperProvider(config);
+            _config = config;
         }
     }
 }
